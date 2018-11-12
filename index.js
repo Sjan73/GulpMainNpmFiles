@@ -28,13 +28,12 @@ module.exports = function(options) {
   buffer = fs.readFileSync(options.packageJsonPath);
   packages = JSON.parse(buffer.toString());
   keys = [];
-
-  for (var key in packages.dependencies) {
-    keys.push(getMainFile(options.nodeModulesPath + "/" + key));
-  }
-
-  if (options.devDependencies) {
-    for (var key in packages.devDependencies) {
+  if (options.dependencies) {
+    for (var key in packages[dependencies]) {
+      keys.push(getMainFile(options.nodeModulesPath + "/" + key));
+    }
+  } else {
+    for (var key in packages.dependencies) {
       keys.push(getMainFile(options.nodeModulesPath + "/" + key));
     }
   }

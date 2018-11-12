@@ -72,7 +72,7 @@ gulp.task('copyNpmDependencies', function() {
 });
 ```
 
-- **devDependencies**: true if you want to take account the dev dependencies, false otherwise. The default value is false.
+- **dependencies**: you can set filter of dependencies which you want to take account the type('dependencies','devDependencies', 'peerDependencies', 'optionalDependencies') dependencies. The default value is 'dependencies'.
 
 ```Javascript
 var mainNpmFiles = require('gulp-main-npm-files');
