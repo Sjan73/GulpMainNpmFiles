@@ -29,7 +29,7 @@ module.exports = function(options) {
   packages = JSON.parse(buffer.toString());
   keys = [];
   if (options.dependencies) {
-    for (var key in packages[dependencies]) {
+    for (var key in packages[options.dependencies]) {
       keys.push(getMainFile(options.nodeModulesPath + "/" + key));
     }
   } else {
